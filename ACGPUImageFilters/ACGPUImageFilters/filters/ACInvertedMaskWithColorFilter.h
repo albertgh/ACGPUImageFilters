@@ -1,5 +1,5 @@
 //
-//  ACMaskWithColorFilter.h
+//  ACInvertedMaskWithColorFilter.h
 //  ACGPUImageFilters
 //
 //  Created by albert on 2019/4/24.
@@ -9,7 +9,7 @@
 #import "GPUImageFilter.h"
 
 
-@interface ACMaskWithColorFilter : GPUImageFilter
+@interface ACInvertedMaskWithColorFilter : GPUImageFilter
 
 - (void)configMaskColor:(UIColor *_Nullable)color;
 

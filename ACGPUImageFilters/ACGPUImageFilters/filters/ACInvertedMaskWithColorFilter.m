@@ -1,16 +1,16 @@
 //
-//  ACMaskWithColorFilter.m
+//  ACInvertedMaskWithColorFilter.m
 //  ACGPUImageFilters
 //
 //  Created by albert on 2019/4/24.
 //  Copyright © 2019 albert. All rights reserved.
 //
 
-#import "ACMaskWithColorFilter.h"
+#import "ACInvertedMaskWithColorFilter.h"
 
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-NSString *const kACMaskWithColorFilterFragmentShaderString = SHADER_STRING
+NSString *const kACInvertedMaskWithColorFilterFragmentShaderString = SHADER_STRING
 (
  precision lowp float; // 'vec4' : declaration must include a precision qualifier for type
  
@@ -23,12 +23,12 @@ NSString *const kACMaskWithColorFilterFragmentShaderString = SHADER_STRING
  {
      lowp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
      
-     gl_FragColor = vec4((maskColor.rgb * textureColor.a), textureColor.a);
+     gl_FragColor = vec4((maskColor.rgb * (1.0 - textureColor.a)), (1.0 - textureColor.a));
  }
  
  );
 #else
-NSString *const kACMaskWithColorFilterFragmentShaderString = SHADER_STRING
+NSString *const kACInvertedMaskWithColorFilterFragmentShaderString = SHADER_STRING
 (
  varying vec2 textureCoordinate;
  uniform sampler2D inputImageTexture;
@@ -39,14 +39,14 @@ NSString *const kACMaskWithColorFilterFragmentShaderString = SHADER_STRING
  {
      vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
      
-     gl_FragColor = vec4((maskColor.rgb * textureColor.a), textureColor.a);
+     gl_FragColor = vec4((maskColor.rgb * (1.0 - textureColor.a)), (1.0 - textureColor.a));
  }
  
  );
 #endif
 
 
-@interface ACMaskWithColorFilter ()
+@interface ACInvertedMaskWithColorFilter ()
 {
     GLint maskColorUniform;
 }
@@ -56,19 +56,19 @@ NSString *const kACMaskWithColorFilterFragmentShaderString = SHADER_STRING
 @end
 
 
-@implementation ACMaskWithColorFilter
+@implementation ACInvertedMaskWithColorFilter
 
 @synthesize maskColor = _maskColor;
 
 - (id)init;
 {
-    if (!(self = [super initWithFragmentShaderFromString:kACMaskWithColorFilterFragmentShaderString]))
+    if (!(self = [super initWithFragmentShaderFromString:kACInvertedMaskWithColorFilterFragmentShaderString]))
     {
         return nil;
     }
     
     maskColorUniform = [filterProgram uniformIndex:@"maskColor"];
-    self.maskColor = (GPUVector3){1.0, 1.0, 1.0}; // default white
+    self.maskColor = (GPUVector3){0.5, 0.5, 0.5}; // default grey
     
     return self;
 }

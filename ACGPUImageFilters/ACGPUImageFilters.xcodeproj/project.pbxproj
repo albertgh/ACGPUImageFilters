@@ -15,6 +15,7 @@
 		509B18D52270545C009EC9BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 509B18D42270545C009EC9BF /* main.m */; };
 		509B18DE227057AC009EC9BF /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 509B18DC227057AC009EC9BF /* star.png */; };
 		509B18E122705A2E009EC9BF /* ACMaskWithColorFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 509B18E022705A2E009EC9BF /* ACMaskWithColorFilter.m */; };
+		509B18E422706DE7009EC9BF /* ACInvertedMaskWithColorFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 509B18E322706DE7009EC9BF /* ACInvertedMaskWithColorFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		509B18DC227057AC009EC9BF /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		509B18DF22705A2E009EC9BF /* ACMaskWithColorFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMaskWithColorFilter.h; sourceTree = "<group>"; };
 		509B18E022705A2E009EC9BF /* ACMaskWithColorFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACMaskWithColorFilter.m; sourceTree = "<group>"; };
+		509B18E222706DE7009EC9BF /* ACInvertedMaskWithColorFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACInvertedMaskWithColorFilter.h; sourceTree = "<group>"; };
+		509B18E322706DE7009EC9BF /* ACInvertedMaskWithColorFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACInvertedMaskWithColorFilter.m; sourceTree = "<group>"; };
 		709A0E902C106ED3F8CBE088 /* Pods-ACGPUImageFilters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACGPUImageFilters.debug.xcconfig"; path = "Target Support Files/Pods-ACGPUImageFilters/Pods-ACGPUImageFilters.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4CB2FD55D42244E2F3790D /* libPods-ACGPUImageFilters.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ACGPUImageFilters.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -103,6 +106,8 @@
 			children = (
 				509B18DF22705A2E009EC9BF /* ACMaskWithColorFilter.h */,
 				509B18E022705A2E009EC9BF /* ACMaskWithColorFilter.m */,
+				509B18E222706DE7009EC9BF /* ACInvertedMaskWithColorFilter.h */,
+				509B18E322706DE7009EC9BF /* ACInvertedMaskWithColorFilter.m */,
 			);
 			path = filters;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			files = (
 				509B18CA2270545A009EC9BF /* ViewController.m in Sources */,
 				509B18D52270545C009EC9BF /* main.m in Sources */,
+				509B18E422706DE7009EC9BF /* ACInvertedMaskWithColorFilter.m in Sources */,
 				509B18C72270545A009EC9BF /* AppDelegate.m in Sources */,
 				509B18E122705A2E009EC9BF /* ACMaskWithColorFilter.m in Sources */,
 			);

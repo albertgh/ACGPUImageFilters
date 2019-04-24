@@ -11,6 +11,7 @@
 #import <GPUImage/GPUImage.h>
 
 #import "ACMaskWithColorFilter.h"
+#import "ACInvertedMaskWithColorFilter.h"
 
 
 @interface ViewController ()
@@ -29,8 +30,8 @@
     
     UIImage *originalImage = [UIImage imageNamed:@"star.png"];
     
-    ACMaskWithColorFilter *maskFilter = [[ACMaskWithColorFilter alloc] init];
-    [maskFilter configMaskColor:[UIColor blueColor]];
+    ACInvertedMaskWithColorFilter *maskFilter = [[ACInvertedMaskWithColorFilter alloc] init];
+    //[maskFilter configMaskColor:[UIColor blueColor]];
     
     UIImage *maskImage = [maskFilter imageByFilteringImage:originalImage];
     
