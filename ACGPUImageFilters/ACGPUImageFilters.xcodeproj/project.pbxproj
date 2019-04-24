@@ -13,6 +13,7 @@
 		509B18CF2270545C009EC9BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509B18CE2270545C009EC9BF /* Assets.xcassets */; };
 		509B18D22270545C009EC9BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509B18D02270545C009EC9BF /* LaunchScreen.storyboard */; };
 		509B18D52270545C009EC9BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 509B18D42270545C009EC9BF /* main.m */; };
+		509B18DE227057AC009EC9BF /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 509B18DC227057AC009EC9BF /* star.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		509B18D12270545C009EC9BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		509B18D32270545C009EC9BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509B18D42270545C009EC9BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		509B18DC227057AC009EC9BF /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		709A0E902C106ED3F8CBE088 /* Pods-ACGPUImageFilters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACGPUImageFilters.debug.xcconfig"; path = "Target Support Files/Pods-ACGPUImageFilters/Pods-ACGPUImageFilters.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4CB2FD55D42244E2F3790D /* libPods-ACGPUImageFilters.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ACGPUImageFilters.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -75,6 +77,8 @@
 				509B18C62270545A009EC9BF /* AppDelegate.m */,
 				509B18C82270545A009EC9BF /* ViewController.h */,
 				509B18C92270545A009EC9BF /* ViewController.m */,
+				509B18DD227057AC009EC9BF /* filters */,
+				509B18DB227057AC009EC9BF /* res */,
 				509B18CE2270545C009EC9BF /* Assets.xcassets */,
 				509B18D02270545C009EC9BF /* LaunchScreen.storyboard */,
 				509B18D32270545C009EC9BF /* Info.plist */,
@@ -83,13 +87,27 @@
 			path = ACGPUImageFilters;
 			sourceTree = "<group>";
 		};
+		509B18DB227057AC009EC9BF /* res */ = {
+			isa = PBXGroup;
+			children = (
+				509B18DC227057AC009EC9BF /* star.png */,
+			);
+			path = res;
+			sourceTree = "<group>";
+		};
+		509B18DD227057AC009EC9BF /* filters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = filters;
+			sourceTree = "<group>";
+		};
 		D75AABB9BFA3EAD34DF21C0F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				709A0E902C106ED3F8CBE088 /* Pods-ACGPUImageFilters.debug.xcconfig */,
 				016F8AA7F2E52B21B428A68B /* Pods-ACGPUImageFilters.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -154,6 +172,7 @@
 			files = (
 				509B18D22270545C009EC9BF /* LaunchScreen.storyboard in Resources */,
 				509B18CF2270545C009EC9BF /* Assets.xcassets in Resources */,
+				509B18DE227057AC009EC9BF /* star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
