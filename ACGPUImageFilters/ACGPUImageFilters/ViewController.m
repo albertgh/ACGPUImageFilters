@@ -30,7 +30,7 @@
     
     UIImage *originalImage = [UIImage imageNamed:@"star.png"];
     
-    ACInvertedMaskWithColorFilter *maskFilter = [[ACInvertedMaskWithColorFilter alloc] init];
+    ACMaskWithColorFilter *maskFilter = [[ACMaskWithColorFilter alloc] init];
     //[maskFilter configMaskColor:[UIColor blueColor]];
     
     UIImage *maskImage = [maskFilter imageByFilteringImage:originalImage];

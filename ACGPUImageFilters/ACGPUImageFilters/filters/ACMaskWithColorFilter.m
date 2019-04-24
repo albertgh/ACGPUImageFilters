@@ -23,7 +23,9 @@ NSString *const kACMaskWithColorFilterFragmentShaderString = SHADER_STRING
  {
      lowp vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
      
-     gl_FragColor = vec4((maskColor.rgb * textureColor.a), textureColor.a);
+     lowp float maskAlpha = (textureColor.a);
+
+     gl_FragColor = vec4((maskColor.rgb * maskAlpha), maskAlpha);
  }
  
  );
@@ -39,7 +41,9 @@ NSString *const kACMaskWithColorFilterFragmentShaderString = SHADER_STRING
  {
      vec4 textureColor = texture2D(inputImageTexture, textureCoordinate);
      
-     gl_FragColor = vec4((maskColor.rgb * textureColor.a), textureColor.a);
+     float maskAlpha = (textureColor.a);
+     
+     gl_FragColor = vec4((maskColor.rgb * maskAlpha), maskAlpha);
  }
  
  );
