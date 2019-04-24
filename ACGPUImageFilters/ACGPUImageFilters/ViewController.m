@@ -56,8 +56,49 @@
     
     UIImage *maskImage = [maskFilter imageByFilteringImage:originalImage];
     
+    CGFloat blurRadius = (maskImage.size.width * 0.1);
+    maskImage = [self imageWithShadowByImage:maskImage color:[UIColor redColor] blurRadius:blurRadius];
     
     self.resultImageView.image = maskImage;
+}
+
+- (UIImage*)imageWithShadowByImage:(UIImage *)image
+                             color:(UIColor *)color
+                        blurRadius:(CGFloat)blurRadius {
+    CGColorSpaceRef colourSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef shadowContext =
+    CGBitmapContextCreate(NULL,
+                          image.size.width,
+                          image.size.height,
+                          CGImageGetBitsPerComponent(image.CGImage),
+                          0,
+                          colourSpace,
+                          kCGImageAlphaPremultipliedLast);
+    CGColorSpaceRelease(colourSpace);
+    
+    // Set up the shadow
+    CGSize offset = CGSizeZero;
+    CGFloat blur = blurRadius;
+    UIColor *innerGlowColor = color;
+    CGContextSetShadowWithColor(shadowContext,
+                                offset,
+                                blur,
+                                innerGlowColor.CGColor);
+    CGContextDrawImage(shadowContext,
+                       CGRectMake(0,
+                                  0,
+                                  image.size.width,
+                                  image.size.height),
+                       image.CGImage);
+    
+    
+    CGImageRef shadowedCGImage = CGBitmapContextCreateImage(shadowContext);
+    CGContextRelease(shadowContext);
+    
+    UIImage * shadowedImage = [UIImage imageWithCGImage:shadowedCGImage];
+    CGImageRelease(shadowedCGImage);
+    
+    return shadowedImage;
 }
 
 
