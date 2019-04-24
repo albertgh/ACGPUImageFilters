@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33100C8D4ACAECB369F59969 /* libPods-ACGPUImageFilters.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC4CB2FD55D42244E2F3790D /* libPods-ACGPUImageFilters.a */; };
 		509B18C72270545A009EC9BF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 509B18C62270545A009EC9BF /* AppDelegate.m */; };
 		509B18CA2270545A009EC9BF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509B18C92270545A009EC9BF /* ViewController.m */; };
 		509B18CF2270545C009EC9BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 509B18CE2270545C009EC9BF /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		016F8AA7F2E52B21B428A68B /* Pods-ACGPUImageFilters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACGPUImageFilters.release.xcconfig"; path = "Target Support Files/Pods-ACGPUImageFilters/Pods-ACGPUImageFilters.release.xcconfig"; sourceTree = "<group>"; };
 		509B18C22270545A009EC9BF /* ACGPUImageFilters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACGPUImageFilters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		509B18C52270545A009EC9BF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		509B18C62270545A009EC9BF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		509B18D12270545C009EC9BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		509B18D32270545C009EC9BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509B18D42270545C009EC9BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		709A0E902C106ED3F8CBE088 /* Pods-ACGPUImageFilters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACGPUImageFilters.debug.xcconfig"; path = "Target Support Files/Pods-ACGPUImageFilters/Pods-ACGPUImageFilters.debug.xcconfig"; sourceTree = "<group>"; };
+		FC4CB2FD55D42244E2F3790D /* libPods-ACGPUImageFilters.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ACGPUImageFilters.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33100C8D4ACAECB369F59969 /* libPods-ACGPUImageFilters.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21217E1DE65FDD6EF3F3D57D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC4CB2FD55D42244E2F3790D /* libPods-ACGPUImageFilters.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		509B18B92270545A009EC9BF = {
 			isa = PBXGroup;
 			children = (
 				509B18C42270545A009EC9BF /* ACGPUImageFilters */,
 				509B18C32270545A009EC9BF /* Products */,
+				D75AABB9BFA3EAD34DF21C0F /* Pods */,
+				21217E1DE65FDD6EF3F3D57D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +83,16 @@
 			path = ACGPUImageFilters;
 			sourceTree = "<group>";
 		};
+		D75AABB9BFA3EAD34DF21C0F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				709A0E902C106ED3F8CBE088 /* Pods-ACGPUImageFilters.debug.xcconfig */,
+				016F8AA7F2E52B21B428A68B /* Pods-ACGPUImageFilters.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -75,9 +100,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 509B18D82270545C009EC9BF /* Build configuration list for PBXNativeTarget "ACGPUImageFilters" */;
 			buildPhases = (
+				8E5BBF5000C89E13D04FB344 /* [CP] Check Pods Manifest.lock */,
 				509B18BE2270545A009EC9BF /* Sources */,
 				509B18BF2270545A009EC9BF /* Frameworks */,
 				509B18C02270545A009EC9BF /* Resources */,
+				5BB662F3954829A2AD4F7A2D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,61 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BB662F3954829A2AD4F7A2D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ACGPUImageFilters/Pods-ACGPUImageFilters-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_amatorka.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_miss_etikate.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_1.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/lookup_soft_elegance_2.png",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ACGPUImageFilters/Pods-ACGPUImageFilters-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E5BBF5000C89E13D04FB344 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ACGPUImageFilters-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		509B18BE2270545A009EC9BF /* Sources */ = {
@@ -271,6 +353,7 @@
 		};
 		509B18D92270545C009EC9BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 709A0E902C106ED3F8CBE088 /* Pods-ACGPUImageFilters.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -288,6 +371,7 @@
 		};
 		509B18DA2270545C009EC9BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 016F8AA7F2E52B21B428A68B /* Pods-ACGPUImageFilters.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
