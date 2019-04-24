@@ -16,6 +16,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UIImageView *resultImageView;
+
 @end
 
 
@@ -27,17 +29,35 @@
     
     self.view.backgroundColor = [UIColor lightGrayColor];
     
+    [self configSubviews];
     
+    [self testingACFiltedImage];
+}
+
+- (void)configSubviews {
+    self.resultImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.resultImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.resultImageView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.resultImageView];
+    
+    CGFloat imageEdge = 300.0;
+    CGFloat imageX = (self.view.frame.size.width - imageEdge) / 2.0;
+    self.resultImageView.frame = CGRectMake(imageX,
+                                            120,
+                                            imageEdge,
+                                            imageEdge);
+}
+
+- (void)testingACFiltedImage {
     UIImage *originalImage = [UIImage imageNamed:@"star.png"];
     
-    ACMaskWithColorFilter *maskFilter = [[ACMaskWithColorFilter alloc] init];
-    //[maskFilter configMaskColor:[UIColor blueColor]];
+    ACInvertedMaskWithColorFilter *maskFilter = [[ACInvertedMaskWithColorFilter alloc] init];
+    [maskFilter configMaskColor:[UIColor blueColor]];
     
     UIImage *maskImage = [maskFilter imageByFilteringImage:originalImage];
     
-    UIImage *breakpoint = maskImage;
     
-    
+    self.resultImageView.image = maskImage;
 }
 
 
