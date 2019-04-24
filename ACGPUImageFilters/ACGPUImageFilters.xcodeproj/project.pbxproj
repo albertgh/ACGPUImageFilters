@@ -14,6 +14,7 @@
 		509B18D22270545C009EC9BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509B18D02270545C009EC9BF /* LaunchScreen.storyboard */; };
 		509B18D52270545C009EC9BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 509B18D42270545C009EC9BF /* main.m */; };
 		509B18DE227057AC009EC9BF /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 509B18DC227057AC009EC9BF /* star.png */; };
+		509B18E122705A2E009EC9BF /* ACMaskWithColorFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 509B18E022705A2E009EC9BF /* ACMaskWithColorFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,8 @@
 		509B18D32270545C009EC9BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		509B18D42270545C009EC9BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		509B18DC227057AC009EC9BF /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		509B18DF22705A2E009EC9BF /* ACMaskWithColorFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMaskWithColorFilter.h; sourceTree = "<group>"; };
+		509B18E022705A2E009EC9BF /* ACMaskWithColorFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACMaskWithColorFilter.m; sourceTree = "<group>"; };
 		709A0E902C106ED3F8CBE088 /* Pods-ACGPUImageFilters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ACGPUImageFilters.debug.xcconfig"; path = "Target Support Files/Pods-ACGPUImageFilters/Pods-ACGPUImageFilters.debug.xcconfig"; sourceTree = "<group>"; };
 		FC4CB2FD55D42244E2F3790D /* libPods-ACGPUImageFilters.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ACGPUImageFilters.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +101,8 @@
 		509B18DD227057AC009EC9BF /* filters */ = {
 			isa = PBXGroup;
 			children = (
+				509B18DF22705A2E009EC9BF /* ACMaskWithColorFilter.h */,
+				509B18E022705A2E009EC9BF /* ACMaskWithColorFilter.m */,
 			);
 			path = filters;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 				509B18CA2270545A009EC9BF /* ViewController.m in Sources */,
 				509B18D52270545C009EC9BF /* main.m in Sources */,
 				509B18C72270545A009EC9BF /* AppDelegate.m in Sources */,
+				509B18E122705A2E009EC9BF /* ACMaskWithColorFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

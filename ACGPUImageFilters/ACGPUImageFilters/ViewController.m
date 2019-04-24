@@ -10,6 +10,8 @@
 
 #import <GPUImage/GPUImage.h>
 
+#import "ACMaskWithColorFilter.h"
+
 
 @interface ViewController ()
 
@@ -27,12 +29,12 @@
     
     UIImage *originalImage = [UIImage imageNamed:@"star.png"];
     
-    GPUImageOpacityFilter *opacityFilter = [[GPUImageOpacityFilter alloc] init];
-    opacityFilter.opacity = 0.5;
+    ACMaskWithColorFilter *maskFilter = [[ACMaskWithColorFilter alloc] init];
+    [maskFilter configMaskColor:[UIColor blueColor]];
     
-    UIImage *opacityImage = [opacityFilter imageByFilteringImage:originalImage];
+    UIImage *maskImage = [maskFilter imageByFilteringImage:originalImage];
     
-    UIImage *breakpoint = opacityImage;
+    UIImage *breakpoint = maskImage;
     
     
 }
