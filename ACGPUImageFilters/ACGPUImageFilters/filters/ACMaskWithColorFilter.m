@@ -68,8 +68,8 @@ NSString *const kACMaskWithColorFilterFragmentShaderString = SHADER_STRING
     }
     
     maskColorUniform = [filterProgram uniformIndex:@"maskColor"];
-    self.maskColor = (GPUVector3){1.0, 1.0, 1.0}; // default white
-    
+    self.maskColor = (GPUVector3){0.5, 0.5, 0.5}; // default grey
+
     return self;
 }
 
