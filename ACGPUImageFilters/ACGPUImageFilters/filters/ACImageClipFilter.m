@@ -1,16 +1,16 @@
 //
-//  ACImageMaskFilter.m
+//  ACImageClipFilter.m
 //  ACGPUImageFilters
 //
 //  Created by albert on 2019/4/26.
 //  Copyright © 2019 albert. All rights reserved.
 //
 
-#import "ACImageMaskFilter.h"
+#import "ACImageClipFilter.h"
 
 
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
-NSString *const kACImageMaskShaderString = SHADER_STRING
+NSString *const kACImageClipShaderString = SHADER_STRING
 (
  varying highp vec2 textureCoordinate;
  varying highp vec2 textureCoordinate2;
@@ -40,7 +40,7 @@ NSString *const kACImageMaskShaderString = SHADER_STRING
  }
  );
 #else
-NSString *const kACImageMaskShaderString = SHADER_STRING
+NSString *const kACImageClipShaderString = SHADER_STRING
 (
  varying vec2 textureCoordinate;
  varying vec2 textureCoordinate2;
@@ -71,11 +71,11 @@ NSString *const kACImageMaskShaderString = SHADER_STRING
  );
 #endif
 
-@implementation ACImageMaskFilter
+@implementation ACImageClipFilter
 
 - (id)init;
 {
-    if (!(self = [super initWithFragmentShaderFromString:kACImageMaskShaderString]))
+    if (!(self = [super initWithFragmentShaderFromString:kACImageClipShaderString]))
     {
         return nil;
     }

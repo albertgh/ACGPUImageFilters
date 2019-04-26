@@ -1,5 +1,5 @@
 //
-//  ACImageMaskFilter.h
+//  ACImageClipFilter.h
 //  ACGPUImageFilters
 //
 //  Created by albert on 2019/4/26.
@@ -9,7 +9,7 @@
 #import "GPUImageTwoInputFilter.h"
 
 
-@interface ACImageMaskFilter : GPUImageTwoInputFilter
+@interface ACImageClipFilter : GPUImageTwoInputFilter
 
 @end
 

@@ -13,7 +13,7 @@
 #import "ACMaskWithColorFilter.h"
 #import "ACInvertedMaskWithColorFilter.h"
 
-#import "ACImageMaskFilter.h"
+#import "ACImageClipFilter.h"
 
 @interface ViewController ()
 
@@ -52,50 +52,31 @@
 - (void)testingACFiltedImage {
     UIImage *resImage = nil;
     
-    UIImage *originalImage = [UIImage imageNamed:@"star.png"];
+    UIImage *originalImage = [UIImage imageNamed:@"shuijiao_clipped.png"];
     
     ACInvertedMaskWithColorFilter *maskFilter = [[ACInvertedMaskWithColorFilter alloc] init];
     [maskFilter configMaskColor:[UIColor blueColor]];
     
     UIImage *invertedMaskImage = [maskFilter imageByFilteringImage:originalImage];
-    
-//    CGFloat blurRadius = (maskImage.size.width * 0.1);
-//    maskImage = [self imageWithShadowByImage:maskImage color:[UIColor redColor] blurRadius:blurRadius];
-    
+
     
     CGFloat blurRadius = (originalImage.size.width * 0.1);
     NSLog(@"blur radius = %@", @(blurRadius));
     GPUImageGaussianBlurFilter *atFilter = [[GPUImageGaussianBlurFilter alloc] init];
     atFilter.blurRadiusInPixels = blurRadius;
+    atFilter.texelSpacingMultiplier = 0.68;
     resImage = [atFilter imageByFilteringImage:invertedMaskImage];
 
     resImage = [self clipImage:resImage byMaskImage:originalImage];
-    
     //resImage = [self maskImage:resImage withMask:invertedMaskImage];
     
     self.resultImageView.image = resImage;
-    
-    UIImage *st = self.resultImageView.image;
-    NSString *breakPoint;
-}
-
-- (UIImage *)maskImage:(UIImage *)image withMask:(UIImage *)maskImage
-{
-    CGImageRef maskRef = maskImage.CGImage;
-    CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
-                                        CGImageGetHeight(maskRef),
-                                        CGImageGetBitsPerComponent(maskRef),
-                                        CGImageGetBitsPerPixel(maskRef),
-                                        CGImageGetBytesPerRow(maskRef),
-                                        CGImageGetDataProvider(maskRef), NULL, false);
-    CGImageRef masked = CGImageCreateWithMask([image CGImage], mask);
-    return [UIImage imageWithCGImage:masked];
 }
 
 - (UIImage *)clipImage:(UIImage *)image byMaskImage:(UIImage *)maskImage {
     UIImage *imgMask = maskImage;
     UIImage *imgBgImage = image;
-    ACImageMaskFilter *maskingFilter = [[ACImageMaskFilter alloc] init];
+    ACImageClipFilter *maskingFilter = [[ACImageClipFilter alloc] init];
 
     GPUImagePicture * maskGpuImage = [[GPUImagePicture alloc] initWithImage:imgMask ];
     GPUImagePicture *FullGpuImage = [[GPUImagePicture alloc] initWithImage:imgBgImage ];
@@ -110,6 +91,18 @@
     UIImage *OutputImage = [maskingFilter imageFromCurrentFramebuffer];
     
     return OutputImage;
+}
+
+- (UIImage *)maskImage:(UIImage *)image withMask:(UIImage *)maskImage {
+    CGImageRef maskRef = maskImage.CGImage;
+    CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(maskRef),
+                                        CGImageGetHeight(maskRef),
+                                        CGImageGetBitsPerComponent(maskRef),
+                                        CGImageGetBitsPerPixel(maskRef),
+                                        CGImageGetBytesPerRow(maskRef),
+                                        CGImageGetDataProvider(maskRef), NULL, false);
+    CGImageRef masked = CGImageCreateWithMask([image CGImage], mask);
+    return [UIImage imageWithCGImage:masked];
 }
 
 - (UIImage*)imageWithShadowByImage:(UIImage *)image
