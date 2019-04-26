@@ -15,7 +15,10 @@
 
 #import "ACImageClipFilter.h"
 
+
 @interface ViewController ()
+
+@property (nonatomic, strong) UIImageView *originalImageView;
 
 @property (nonatomic, strong) UIImageView *resultImageView;
 
@@ -36,13 +39,25 @@
 }
 
 - (void)configSubviews {
-    self.resultImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-    self.resultImageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.resultImageView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.resultImageView];
-    
     CGFloat imageEdge = 300.0;
     CGFloat imageX = (self.view.frame.size.width - imageEdge) / 2.0;
+    
+    self.originalImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.originalImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.originalImageView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.originalImageView];
+    
+    self.originalImageView.frame = CGRectMake(imageX,
+                                              120,
+                                              imageEdge,
+                                              imageEdge);
+    
+    
+    self.resultImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+    self.resultImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.resultImageView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:self.resultImageView];
+    
     self.resultImageView.frame = CGRectMake(imageX,
                                             120,
                                             imageEdge,
@@ -50,6 +65,8 @@
 }
 
 - (void)testingACFiltedImage {
+    self.originalImageView.image = [UIImage imageNamed:@"shuijiao_clipped.png"];
+    
     UIImage *resImage = nil;
     
     UIImage *originalImage = [UIImage imageNamed:@"shuijiao_clipped.png"];
