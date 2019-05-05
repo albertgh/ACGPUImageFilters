@@ -36,6 +36,8 @@
     [self configSubviews];
     
     [self testingACFiltedImage];
+    
+    [self testAVGColor];
 }
 
 - (void)configSubviews {
@@ -161,5 +163,17 @@
     return shadowedImage;
 }
 
+- (void)testAVGColor {
+    GPUImagePicture *bgPicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"star.png"]];
+
+    GPUImageAverageColor *avgColor = [[GPUImageAverageColor alloc] init];
+    [avgColor setColorAverageProcessingFinishedBlock:^(CGFloat redComponent, CGFloat greenComponent, CGFloat blueComponent, CGFloat alphaComponent, CMTime frameTime){
+        NSLog(@"Red: %f, green: %f, blue: %f, alpha: %f", redComponent, greenComponent, blueComponent, alphaComponent);
+        
+    }];
+    
+    [bgPicture addTarget:avgColor];
+    [bgPicture processImage];
+}
 
 @end
