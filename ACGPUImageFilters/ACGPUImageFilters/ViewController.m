@@ -37,7 +37,9 @@
     
     [self testingACFiltedImage];
     
-    [self testAVGColor];
+    [self testingAvgColorAndLum];
+    
+    
 }
 
 - (void)configSubviews {
@@ -64,6 +66,25 @@
                                             120,
                                             imageEdge,
                                             imageEdge);
+}
+
+- (void)testingAvgColorAndLum {
+    GPUImagePicture *imagePicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"shuijiao_clipped.png"]];
+
+    GPUImageAverageColor *averageColor = [[GPUImageAverageColor alloc] init];
+    [averageColor setColorAverageProcessingFinishedBlock:^(CGFloat redComponent, CGFloat greenComponent, CGFloat blueComponent, CGFloat alphaComponent, CMTime frameTime){
+        NSLog(@"Red: %f, green: %f, blue: %f, alpha: %f", redComponent, greenComponent, blueComponent, alphaComponent);
+    }];
+    
+    
+    GPUImageLuminosity *luminosity = [[GPUImageLuminosity alloc] init];
+    [luminosity setLuminosityProcessingFinishedBlock:^(CGFloat luminosity, CMTime frameTime) {
+        NSLog(@"bg Lumin is %f ", luminosity);
+    }];
+    
+    [imagePicture addTarget:averageColor];
+    [imagePicture addTarget:luminosity];
+    [imagePicture processImage];
 }
 
 - (void)testingACFiltedImage {
@@ -161,19 +182,6 @@
     CGImageRelease(shadowedCGImage);
     
     return shadowedImage;
-}
-
-- (void)testAVGColor {
-    GPUImagePicture *bgPicture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"star.png"]];
-
-    GPUImageAverageColor *avgColor = [[GPUImageAverageColor alloc] init];
-    [avgColor setColorAverageProcessingFinishedBlock:^(CGFloat redComponent, CGFloat greenComponent, CGFloat blueComponent, CGFloat alphaComponent, CMTime frameTime){
-        NSLog(@"Red: %f, green: %f, blue: %f, alpha: %f", redComponent, greenComponent, blueComponent, alphaComponent);
-        
-    }];
-    
-    [bgPicture addTarget:avgColor];
-    [bgPicture processImage];
 }
 
 @end
